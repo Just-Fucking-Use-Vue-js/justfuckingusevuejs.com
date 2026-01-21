@@ -5,14 +5,14 @@ description: Minimal boilerplate. Readable components. Predictable reactivity.
 
 ::hero
 #title
-Just <span class="bg-linear-to-r from-[#42d392] to-[#647eff] bg-clip-text text-transparent">Use Vue</span>.
+Just <span class="text-gradient">Use Vue</span>
 
 #description
 Predictable reactivity. Minimal boilerplate. Readable components.
 
 #links
-:u-button[Vue Playground]{to="https://play.vuejs.org/" target="_blank" color="neutral" variant="subtle" size="md"}
-:u-button[Quick Start]{to="https://vuejs.org/guide/quick-start.html" target="_blank" color="neutral" variant="ghost" size="md"}
+<a href="https://vuejs.org/guide/quick-start.html" target="_blank" class="hero-btn">Quick Start →</a>
+<a href="https://vuejs.org/guide/quick-start.html#creating-a-vue-application" target="_blank" class="hero-btn">Installation</a>
 ::
 
 ## Sound familiar?

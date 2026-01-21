@@ -7,27 +7,21 @@ defineSlots<{
 </script>
 
 <template>
-  <UPageHero
-    :ui="{
-      wrapper: 'text-center',
-      title: 'sm:text-5xl font-extrabold tracking-[-1.5px]',
-      description: 'sm:text-lg',
-    }"
-  >
-    <template #title>
+  <section class="hero">
+    <h1>
       <slot
         name="title"
         mdc-unwrap="p"
       />
-    </template>
-    <template #description>
+    </h1>
+    <p class="hero-description">
       <slot
         name="description"
         mdc-unwrap="p"
       />
-    </template>
-    <template #links>
+    </p>
+    <div class="hero-links">
       <slot name="links" />
-    </template>
-  </UPageHero>
+    </div>
+  </section>
 </template>

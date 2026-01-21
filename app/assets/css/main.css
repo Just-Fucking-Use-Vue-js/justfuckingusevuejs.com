@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
-@custom-variant light "html:not(.dark) &";
 @source "../../../content";
 
 @theme static {
@@ -52,14 +51,17 @@ body {
 }
 
 .content h2 {
-  @apply text-2xl sm:text-3xl font-semibold mt-16 mb-4 text-text;
+  @apply text-xl sm:text-2xl font-semibold mt-12 mb-4 text-text;
   letter-spacing: -0.02em;
 }
 
 .content h2 a,
-.content h3 a {
-  @apply no-underline pointer-events-none;
-  color: inherit;
+.content h3 a,
+.content h2 a:hover,
+.content h3 a:hover {
+  all: unset !important;
+  color: inherit !important;
+  cursor: text;
 }
 
 .content h3 {
@@ -93,7 +95,7 @@ body {
   @apply absolute left-0 text-accent;
 }
 
-.content a {
+.content a:not(.hero-btn) {
   @apply font-medium transition-colors text-accent hover:text-accent/80;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -170,13 +172,52 @@ body {
   @apply text-center text-lg;
 }
 
-[class*="UPageHero"] {
-  @apply py-16 sm:py-24 text-center;
+.hero {
+  @apply py-12 sm:py-16 text-center;
 }
 
-[class*="UPageHero"] h1 {
-  @apply text-4xl sm:text-5xl font-bold text-text;
-  letter-spacing: -0.02em;
+.hero h1 {
+  @apply text-4xl sm:text-6xl font-black text-text;
+  letter-spacing: -0.025em;
+}
+
+.hero-description {
+  @apply text-lg text-text-muted mt-4;
+}
+
+.hero-links {
+  @apply mt-8;
+}
+
+.hero-btn {
+  all: unset;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 12px;
+  cursor: pointer;
+  background: var(--hero-btn-bg, #e8e8e8);
+  color: var(--hero-btn-color, #476582);
+  transition: background 0.25s;
+}
+
+.hero-btn:hover {
+  background: var(--hero-btn-bg-hover, #d8d8d8);
+}
+
+.dark {
+  --hero-btn-bg: #2f2f2f;
+  --hero-btn-bg-hover: #3a3a3a;
+  --hero-btn-color: rgba(235, 235, 235, 0.6);
+}
+
+.text-gradient {
+  background: linear-gradient(315deg, #42d392 25%, #647eff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .color-mode-switch {
