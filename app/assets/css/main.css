@@ -3,11 +3,13 @@
 @custom-variant light "html:not(.dark) &";
 @source "../../../content";
 
-
-@theme static {
+@theme {
   --font-sans: "Inter var experimental", " Inter var", Inter, -apple-system, BlinkMacSystemFont, " Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, " Fira Sans", " Droid Sans", " Helvetica Neue", sans-serif;
   --font-mono: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
 
+
+@theme static {
   --color-green-50: #eefbf4;
   --color-green-100: #d6f5e2;
   --color-green-200: #b1e9ca;
@@ -23,14 +25,20 @@
 
 :root {
   --ui-bg: #ffffff;
+
   --ui-text: #213547;
   --ui-text-muted: #3c3c3cb3;
+
+  --ui-border-muted: #3c3c3c1f;
 
   --ui-container: 65ch;
 }
 
 .dark {
   --ui-bg: #1a1a1a;
+
   --ui-text: #ffffffde;
   --ui-text-muted: #ebebeb99;
+
+  --ui-border-muted: #5454547a;
 }

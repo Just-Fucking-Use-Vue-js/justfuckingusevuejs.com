@@ -1,18 +1,17 @@
 <script lang="ts" setup>
+import type { ButtonProps } from '@nuxt/ui'
+
+const props = defineProps<{
+  links: ButtonProps[]
+}>()
 defineSlots<{
-  title: (props: {}) => any
-  description: (props: {}) => any
+  title: (props: any) => any
+  description: (props: any) => any
 }>()
 </script>
 
 <template>
-  <UPageHero
-    :ui="{
-      wrapper: 'text-left',
-      title: 'sm:text-5xl font-extrabold tracking-[-1.5px]',
-      description: 'sm:text-lg',
-    }"
-  >
+  <UPageCTA :links="props.links">
     <template #title>
       <slot
         name="title"
@@ -25,5 +24,5 @@ defineSlots<{
         mdc-unwrap="p"
       />
     </template>
-  </UPageHero>
+  </UPageCTA>
 </template>

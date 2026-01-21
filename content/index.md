@@ -6,10 +6,10 @@
 Minimal boilerplate. Readable components. Predictable reactivity.
 ::
 
-
+::u-container
 ## The Progressive Framework
 
-We've spend years over-complexing front-end development. More tooling, more abstractions, more concepts. Always more. Vue.js takes the opposite approach. It starts simple yet scales up to complex applications. From a simple script include to a full-featured SPA framework.
+Vue.js is designed to be incrementally adoptable. You can start small and scale up as needed. Whether you're adding interactivity to a static page or building a complex single-page application, Vue has you covered.
 
 ```html [index.html]
 <div id="app">
@@ -28,10 +28,13 @@ We've spend years over-complexing front-end development. More tooling, more abst
 </script>
 ```
 
-<!-- TODO: show the result -->
+:the-progressive-framework-illustration
 
 **This makes Vue approachable for beginners, flattens the learning curve, and lets you focus on building your UI instead of assembling a complex toolchain.**
+::
 
+
+::u-container
 ## Reactivity at its Core
 
 Will it re-render? Should I memoize this function? These questions don't exist in Vue. The fine-grained reactivity system tracks dependencies automatically, making changes predictable and easy to reason about. No magic, no surprises.
@@ -70,8 +73,9 @@ export function useCounter() {
 ```
 
 **Use the reactivity system directly, without ceremony. Your code stays clean, readable, and easy to maintain. Readable in and out of components.**
+::
 
-
+::u-container
 ## Comprehensive Single-File Components
 
 Vue.js syntax is HTML-compatible. There's no need to learn a new templating language. Just use standard HTML with special attributes (directives) to bind data and react to events. With this familiar syntax, Vue's Single-File components (SFCs) let you create clean, encapsulated, and reusable components with minimal boilerplate. that's easy to read and maintain.
@@ -94,7 +98,9 @@ const name = ref('Vue')
 ```
 
 **SFCs keep your components organized and easy to understand, with clear separation of concerns. There's no need to write an infinity of components in a single file.**
+::
 
+::u-container
 ## Composition by Nature
 
 <!-- TODO: le faire plus générique au départ et ensuite se tourner vers l'api de Vue.js -->
@@ -121,27 +127,30 @@ const emits = defineEmits(['close'])
 
 Even better, you can pass templates (slots) to compose complex components from simple building blocks.
 
-<!-- TODO: side by side -->
-
-```vue [Modal.vue]
-<template>
-  <div class="modal">
-    <slot />
-  </div>
-</template>
-```
-
-```vue [App.vue]
-<template>
-  <Modal>
-    <h2>Welcome</h2>
-    <p>This is a simple modal dialog.</p>
-  </Modal>
-</template>
-```
+  ::side-by-side
+  #left
+  ```vue [Modal.vue]
+  <template>
+    <div class="modal">
+      <slot />
+    </div>
+  </template>
+  ```
+  #right
+  ```vue [App.vue]
+  <template>
+    <Modal>
+      <h2>Welcome</h2>
+      <p>This is a simple modal dialog.</p>
+    </Modal>
+  </template>
+  ```
+  ::
 
 **Clear boundaries make components easy to understand and reuse. Simple, elegant and HTML-compatible syntax keeps the learning curve flat.**
+::
 
+::u-container
 ## Ecosystem That Fits
 
 <!-- TODO: improve this text -->
@@ -150,24 +159,14 @@ To scale up, Vue ecosystem provides both official and community libraries that f
 
 <!-- TODO: use cards, 2x2 grid -->
 
-- Vue Router: Declarative routing for building SPAs.
-- Pinia: Intuitive state management with first-class TypeScript support.
-- VueUse: Collection of essential Vue composition utilities.
-- Vue Devtools: Debug and profile your Vue applications.
+- Vue Router: Declarative routing for building SPAs. (https://router.vuejs.org/)
+- Pinia: Intuitive state management with first-class TypeScript support. (https://pinia.vuejs.org/)
+- VueUse: Collection of essential Vue composition utilities. (https://vueuse.org/)
+- Vue Devtools: Debug and profile your Vue applications. (https://devtools.vuejs.org/)
+- Nuxt UI: Component library for building beautiful UIs. (https://ui.nuxt.com/)
 
 **There's no need create meetings to discuss which router or state management library to use. Vue's official libraries are designed to work together seamlessly, following the same mental model.**
-
-## Ecosystem that fits
-
-Vue’s ecosystem is cohesive and aligns with the same mental model:
-
-- Vue Router: https://router.vuejs.org/
-- Pinia: https://pinia.vuejs.org/
-- VueUse: https://vueuse.org/
-- Vue Devtools: https://devtools.vuejs.org/
-- Nuxt UI: https://ui.nuxt.com
-
-<!-- create 4 cards (2x2 grids) -->
+::
 
 <!-- TODO: not sure about these copy/paste bullets, need to think more about them. -->
 
@@ -184,18 +183,7 @@ Vue’s ecosystem is cohesive and aligns with the same mental model:
 - Do you want a framework you can try without committing a whole build pipeline?
 - Would a calmer mental model make you faster day to day? -->
 
-## Try it
-
-<!-- TODO: use the CTA component -->
-
-No need to over-engineer your UI. Just use Vue.js now.
-
-- Vue Playground: https://play.vuejs.org/
-- Quick Start: https://vuejs.org/guide/quick-start.html
-
-
-<!--
-
+::call-to-action
 ---
 links:
   - label: Vue Playground
@@ -205,9 +193,11 @@ links:
     url: https://vuejs.org/guide/quick-start.html?utm_source=justckingusevuejs.com&utm_medium=homepage&utm_term=get+started&utm_content=link
     target: _blank
 ---
-
- -->
-
+#title
+Try it
+#description
+No need to over-engineer your UI. Just use Vue.js now.
+::
 
 <!--
 
