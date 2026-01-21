@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+@custom-variant light "html:not(.dark) &";
+@source "../../../content";
+
+
+@theme static {
+  --font-sans: "Inter var experimental", " Inter var", Inter, -apple-system, BlinkMacSystemFont, " Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, " Fira Sans", " Droid Sans", " Helvetica Neue", sans-serif;
+  --font-mono: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+  --color-green-50: #eefbf4;
+  --color-green-100: #d6f5e2;
+  --color-green-200: #b1e9ca;
+  --color-green-300: #7ed7ac;
+  --color-green-400: #42b883;
+  --color-green-500: #27a26f;
+  --color-green-600: #188359;
+  --color-green-700: #136949;
+  --color-green-800: #12533c;
+  --color-green-900: #104432;
+  --color-green-950: #08261c;
+}
+
+:root {
+  --ui-bg: #ffffff;
+  --ui-text: #213547;
+  --ui-text-muted: #3c3c3cb3;
+
+  --ui-container: 65ch;
+}
+
+.dark {
+  --ui-bg: #1a1a1a;
+  --ui-text: #ffffffde;
+  --ui-text-muted: #ebebeb99;
+}
