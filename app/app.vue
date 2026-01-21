@@ -1,9 +1,23 @@
 <script setup lang="ts">
 const { data: home } = await useAsyncData(() => queryCollection('content').path('/').first())
+const colorMode = useColorMode()
+
+function toggleColorMode() {
+  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+}
 </script>
 
 <template>
   <UApp>
+    <button
+      class="fixed top-4 right-4 p-2.5 rounded-full hover:bg-bg-soft text-text-muted hover:text-accent transition-all z-50"
+      @click="toggleColorMode"
+    >
+      <UIcon
+        :name="colorMode.value === 'dark' ? 'i-lucide-sun' : 'i-lucide-moon'"
+        class="w-5 h-5"
+      />
+    </button>
     <UMain class="content">
       <ContentRenderer
         v-if="home"

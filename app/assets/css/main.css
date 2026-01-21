@@ -4,37 +4,36 @@
 @source "../../../content";
 
 @theme static {
-  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
-  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
   --color-bg: var(--bg);
   --color-bg-alt: var(--bg-alt);
+  --color-bg-soft: var(--bg-soft);
   --color-text: var(--text);
   --color-text-muted: var(--text-muted);
   --color-accent: var(--accent);
-  --color-accent-secondary: var(--accent-secondary);
   --color-border: var(--border);
 }
 
 :root {
-  --bg: #fafafa;
-  --bg-alt: #f0f0f0;
-  --text: #1a1a1a;
-  --text-muted: #666666;
+  --bg: #ffffff;
+  --bg-alt: #f9f9f9;
+  --bg-soft: #f6f6f7;
+  --text: #213547;
+  --text-muted: #476582;
   --accent: #42b883;
-  --accent-secondary: #647eff;
-  --border: #e0e0e0;
+  --border: #e2e2e3;
 }
 
 .dark {
-  --bg: #0a0a0a;
-  --bg-alt: #141414;
-  --text: #ffffff;
-  --text-muted: #888888;
+  --bg: #1a1a1a;
+  --bg-alt: #242424;
+  --bg-soft: #2f2f2f;
+  --text: rgba(255, 255, 255, 0.87);
+  --text-muted: rgba(235, 235, 235, 0.6);
   --accent: #42d392;
-  --accent-secondary: #647eff;
-  --border: #222222;
+  --border: #2e2e2e;
 }
 
 html {
@@ -44,12 +43,11 @@ html {
 body {
   background: var(--bg);
   color: var(--text);
-  font-feature-settings: "ss01", "ss02", "cv01";
 }
 
 ::selection {
   background: var(--accent);
-  color: var(--bg);
+  color: white;
 }
 
 .content {
@@ -57,70 +55,64 @@ body {
 }
 
 .content h2 {
-  @apply text-3xl sm:text-4xl font-bold mt-20 mb-6;
-  font-family: var(--font-display);
+  @apply text-2xl sm:text-3xl font-semibold mt-16 mb-4 text-text;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .content h2 a,
 .content h3 a {
   @apply no-underline pointer-events-none;
   color: inherit;
-  -webkit-text-fill-color: inherit;
 }
 
 .content h3 {
-  @apply text-xl font-semibold mt-10 mb-3 text-text;
-  font-family: var(--font-display);
-  letter-spacing: -0.01em;
+  @apply text-lg font-semibold mt-8 mb-2 text-text;
 }
 
 .content p {
-  @apply text-lg leading-relaxed mb-5 text-text-muted;
+  @apply text-base leading-relaxed mb-4 text-text-muted;
 }
 
 .content h2 + p {
-  @apply text-xl text-text;
+  @apply text-lg text-text;
 }
 
 .content p:has(strong:only-child) {
-  @apply font-semibold mt-8 mb-10 text-text;
+  @apply font-medium mt-6 mb-8 text-accent;
 }
 
 .content ul {
-  @apply my-6 space-y-3;
+  @apply my-4 space-y-2;
   list-style: none;
   padding: 0;
 }
 
 .content ul li {
-  @apply text-lg leading-relaxed pl-7 relative text-text-muted;
+  @apply text-base leading-relaxed pl-5 relative text-text-muted;
 }
 
 .content ul li::before {
-  content: "→";
-  @apply absolute left-0 font-bold text-accent;
+  content: "•";
+  @apply absolute left-0 text-accent;
 }
 
 .content a {
-  @apply font-semibold underline underline-offset-2 transition-colors text-accent hover:text-accent-secondary;
+  @apply font-medium transition-colors text-accent hover:text-accent/80;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .content code:not(pre code) {
-  @apply px-2 py-0.5 rounded text-sm font-mono bg-bg-alt text-accent;
+  @apply px-1.5 py-0.5 rounded text-sm font-mono bg-bg-soft text-text;
 }
 
 .content h2#sound-familiar + p + ul {
-  @apply space-y-2;
+  @apply space-y-1;
 }
 
 .content h2#sound-familiar + p + ul li {
-  @apply pl-5 py-2 text-text font-medium italic
-         border-l-2 border-accent/40 hover:border-accent transition-colors;
+  @apply pl-4 py-1.5 text-text-muted
+         border-l-2 border-accent/30 hover:border-accent transition-colors;
 }
 
 .content h2#sound-familiar + p + ul li::before {
@@ -128,9 +120,7 @@ body {
 }
 
 .content h2#but-- {
-  @apply text-text-muted opacity-70;
-  background: none;
-  -webkit-text-fill-color: var(--text-muted);
+  @apply text-text-muted;
 }
 
 .content h2#but-- ~ h3 {
@@ -138,7 +128,7 @@ body {
 }
 
 .content h2#but-- ~ h3::before {
-  content: "↳ ";
+  content: "→ ";
   @apply text-accent;
 }
 
@@ -147,24 +137,24 @@ body {
 }
 
 .content h2#questions-to-ask-yourself + ul li {
-  @apply pl-6 text-text-muted text-base;
+  @apply pl-5 text-text-muted text-sm;
 }
 
 .content h2#questions-to-ask-yourself + ul li::before {
   content: "?";
-  @apply text-accent font-bold;
+  @apply text-accent font-medium;
 }
 
 .content h2#questions-to-ask-yourself + ul li em {
-  @apply text-accent not-italic font-semibold;
+  @apply text-accent not-italic font-medium;
 }
 
 .content h2#ecosystem-that-fits + p + ul {
-  @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-3;
 }
 
 .content h2#ecosystem-that-fits + p + ul li {
-  @apply bg-bg-alt rounded-xl p-5 border border-border hover:border-accent transition-colors;
+  @apply bg-bg-soft rounded-lg p-4 border border-border hover:border-accent/50 transition-colors;
 }
 
 .content h2#ecosystem-that-fits + p + ul li::before {
@@ -172,7 +162,7 @@ body {
 }
 
 .content h2#ecosystem-that-fits + p + ul li a {
-  @apply text-accent font-bold no-underline hover:underline;
+  @apply text-accent font-medium no-underline hover:underline;
 }
 
 .content h2#try-it {
@@ -180,15 +170,14 @@ body {
 }
 
 .content h2#try-it + p {
-  @apply text-center text-xl;
+  @apply text-center text-lg;
 }
 
 [class*="UPageHero"] {
-  @apply py-20 sm:py-32 text-center;
+  @apply py-16 sm:py-24 text-center;
 }
 
 [class*="UPageHero"] h1 {
-  @apply text-4xl sm:text-6xl font-black text-text;
-  font-family: var(--font-display);
-  letter-spacing: -0.03em;
+  @apply text-4xl sm:text-5xl font-bold text-text;
+  letter-spacing: -0.02em;
 }
