@@ -8,9 +8,6 @@
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
-  --color-green-400: #42b883;
-  --color-green-500: #3ca77a;
-
   --color-bg: var(--bg);
   --color-bg-alt: var(--bg-alt);
   --color-text: var(--text);
@@ -28,7 +25,6 @@
   --accent: #42b883;
   --accent-secondary: #647eff;
   --border: #e0e0e0;
-  --code-bg: #1a1a2e;
 }
 
 .dark {
@@ -39,12 +35,7 @@
   --accent: #42d392;
   --accent-secondary: #647eff;
   --border: #222222;
-  --code-bg: #0d0d0d;
 }
-
-/* ============================================
-   BASE
-   ============================================ */
 
 html {
   scroll-behavior: smooth;
@@ -61,19 +52,11 @@ body {
   color: var(--bg);
 }
 
-/* ============================================
-   LAYOUT
-   ============================================ */
-
-.content-wrapper {
+.content {
   @apply max-w-170 mx-auto px-6 pb-24;
 }
 
-/* ============================================
-   TYPOGRAPHY
-   ============================================ */
-
-.content-wrapper h2 {
+.content h2 {
   @apply text-3xl sm:text-4xl font-bold mt-20 mb-6;
   font-family: var(--font-display);
   letter-spacing: -0.02em;
@@ -83,175 +66,122 @@ body {
   background-clip: text;
 }
 
-/* Hide anchor links */
-.content-wrapper h2 a,
-.content-wrapper h3 a {
+.content h2 a,
+.content h3 a {
   @apply no-underline pointer-events-none;
   color: inherit;
   -webkit-text-fill-color: inherit;
 }
 
-.content-wrapper h3 {
+.content h3 {
   @apply text-xl font-semibold mt-10 mb-3 text-text;
   font-family: var(--font-display);
   letter-spacing: -0.01em;
 }
 
-.content-wrapper p {
+.content p {
   @apply text-lg leading-relaxed mb-5 text-text-muted;
 }
 
-.content-wrapper h2 + p {
+.content h2 + p {
   @apply text-xl text-text;
 }
 
-/* Bold closers */
-.content-wrapper p:has(strong:only-child) {
+.content p:has(strong:only-child) {
   @apply font-semibold mt-8 mb-10 text-text;
 }
 
-/* ============================================
-   LISTS
-   ============================================ */
-
-.content-wrapper ul {
+.content ul {
   @apply my-6 space-y-3;
   list-style: none;
   padding: 0;
 }
 
-.content-wrapper ul li {
+.content ul li {
   @apply text-lg leading-relaxed pl-7 relative text-text-muted;
 }
 
-.content-wrapper ul li::before {
+.content ul li::before {
   content: "→";
   @apply absolute left-0 font-bold text-accent;
 }
 
-/* Links */
-.content-wrapper a {
+.content a {
   @apply font-semibold underline underline-offset-2 transition-colors text-accent hover:text-accent-secondary;
 }
 
-/* ============================================
-   CODE
-   ============================================ */
-
-.content-wrapper pre {
-  @apply my-8 rounded-xl overflow-hidden p-5;
-  background: var(--code-bg) !important;
-  font-size: 0.875rem;
-  line-height: 1.7;
-}
-
-.content-wrapper pre code {
-  font-family: var(--font-mono);
-}
-
-/* File name header */
-.content-wrapper pre[filename]::before {
-  content: attr(filename);
-  @apply block text-xs text-text-muted mb-4 pb-3 border-b border-white/10;
-  font-family: var(--font-mono);
-}
-
-.content-wrapper code:not(pre code) {
+.content code:not(pre code) {
   @apply px-2 py-0.5 rounded text-sm font-mono bg-bg-alt text-accent;
 }
 
-/* ============================================
-   SOUND FAMILIAR - Quote style
-   ============================================ */
-
-.content-wrapper h2#sound-familiar + p + ul {
+.content h2#sound-familiar + p + ul {
   @apply space-y-2;
 }
 
-.content-wrapper h2#sound-familiar + p + ul li {
+.content h2#sound-familiar + p + ul li {
   @apply pl-5 py-2 text-text font-medium italic
          border-l-2 border-accent/40 hover:border-accent transition-colors;
 }
 
-.content-wrapper h2#sound-familiar + p + ul li::before {
+.content h2#sound-familiar + p + ul li::before {
   content: none;
 }
 
-/* ============================================
-   "BUT..." OBJECTIONS
-   ============================================ */
-
-.content-wrapper h2#but-- {
+.content h2#but-- {
   @apply text-text-muted opacity-70;
   background: none;
   -webkit-text-fill-color: var(--text-muted);
 }
 
-.content-wrapper h2#but-- ~ h3 {
+.content h2#but-- ~ h3 {
   @apply text-text;
 }
 
-.content-wrapper h2#but-- ~ h3::before {
+.content h2#but-- ~ h3::before {
   content: "↳ ";
   @apply text-accent;
 }
 
-/* ============================================
-   QUESTIONS
-   ============================================ */
-
-.content-wrapper h2#questions-to-ask-yourself + ul {
+.content h2#questions-to-ask-yourself + ul {
   @apply space-y-1;
 }
 
-.content-wrapper h2#questions-to-ask-yourself + ul li {
+.content h2#questions-to-ask-yourself + ul li {
   @apply pl-6 text-text-muted text-base;
 }
 
-.content-wrapper h2#questions-to-ask-yourself + ul li::before {
+.content h2#questions-to-ask-yourself + ul li::before {
   content: "?";
   @apply text-accent font-bold;
 }
 
-.content-wrapper h2#questions-to-ask-yourself + ul li em {
+.content h2#questions-to-ask-yourself + ul li em {
   @apply text-accent not-italic font-semibold;
 }
 
-/* ============================================
-   ECOSYSTEM - Grid
-   ============================================ */
-
-.content-wrapper h2#ecosystem-that-fits + p + ul {
+.content h2#ecosystem-that-fits + p + ul {
   @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
 }
 
-.content-wrapper h2#ecosystem-that-fits + p + ul li {
+.content h2#ecosystem-that-fits + p + ul li {
   @apply bg-bg-alt rounded-xl p-5 border border-border hover:border-accent transition-colors;
 }
 
-.content-wrapper h2#ecosystem-that-fits + p + ul li::before {
+.content h2#ecosystem-that-fits + p + ul li::before {
   content: none;
 }
 
-.content-wrapper h2#ecosystem-that-fits + p + ul li a {
+.content h2#ecosystem-that-fits + p + ul li a {
   @apply text-accent font-bold no-underline hover:underline;
 }
 
-/* ============================================
-   TRY IT - CTA
-   ============================================ */
-
-.content-wrapper h2#try-it {
+.content h2#try-it {
   @apply text-center;
 }
 
-.content-wrapper h2#try-it + p {
+.content h2#try-it + p {
   @apply text-center text-xl;
 }
-
-/* ============================================
-   HERO
-   ============================================ */
 
 [class*="UPageHero"] {
   @apply py-20 sm:py-32 text-center;
