@@ -11,14 +11,20 @@ defineSlots<{
     :ui="{
       wrapper: 'text-center',
       title: 'sm:text-5xl font-extrabold tracking-[-1.5px]',
-      description: 'sm:text-lg'
+      description: 'sm:text-lg',
     }"
   >
     <template #title>
-      <slot name="title" mdc-unwrap="p" />
+      <slot
+        name="title"
+        mdc-unwrap="p"
+      />
     </template>
     <template #description>
-      <slot name="description" mdc-unwrap="p" />
+      <slot
+        name="description"
+        mdc-unwrap="p"
+      />
     </template>
     <template #links>
       <slot name="links" />

@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/fonts',
     'nuxt-llms',
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
   ],
 
   devtools: {
@@ -13,16 +13,6 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
-
-  routeRules: {
-    '/': { prerender: true },
-  },
-
-  compatibilityDate: '2025-01-15',
-
-  features: {
-    inlineStyles: true
-  },
 
   content: {
     build: {
@@ -36,6 +26,16 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  routeRules: {
+    '/': { prerender: true },
+  },
+
+  features: {
+    inlineStyles: true,
+  },
+
+  compatibilityDate: '2025-01-15',
 
   eslint: {
     config: {
