@@ -27,6 +27,9 @@ Inspiration (format and tone, not negativity):
 - https://justfuckingusehtml.com/
 - http://bettermotherfuckingwebsite.com/
 - https://justfuckingusereact.com/
+
+add nuxt-llm to easily have the page using AI (and ofc, add a link to it in the footer with something like "Need to convince your LLM? use a link"
+and use a cloudflare rules to redirect requests to md page https://developers.cloudflare.com/rules/url-forwarding/single-redirects/create-dashboard/ (and use curl -s https://your-domain.com/docs -H "Accept: text/markdown" | glow
      -->
   </UApp>
 </template>

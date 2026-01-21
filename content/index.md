@@ -97,6 +97,51 @@ const name = ref('Vue')
 
 ## Composition by Nature
 
+<!-- TODO: le faire plus générique au départ et ensuite se tourner vers l'api de Vue.js -->
+<!-- TODO: create a beautiful UI component to demonstrate this point -->
+
+Parent-child communication is at the heart of our UIs. Making it intuitive and you're assured a smooth development experience. Vue.js takes is seriously. Accept data (props) from parents and emit events (emits) to notify them of changes. Exactly like standard HTML elements.
+
+```vue [Modal.vue]
+<script setup>
+const props = defineProps({
+  title: String,
+})
+
+const emits = defineEmits(['close'])
+</script>
+
+<template>
+  <div class="modal">
+    <h2>{{ props.title }}</h2>
+    <button @click="emits('close')">Close</button>
+  </div>
+</template>
+```
+
+Even better, you can pass templates (slots) to compose complex components from simple building blocks.
+
+<!-- TODO: side by side -->
+
+```vue [Modal.vue]
+<template>
+  <div class="modal">
+    <slot />
+  </div>
+</template>
+```
+
+```vue [App.vue]
+<template>
+  <Modal>
+    <h2>Welcome</h2>
+    <p>This is a simple modal dialog.</p>
+  </Modal>
+</template>
+```
+
+**Clear boundaries make components easy to understand and reuse. Simple, elegant and HTML-compatible syntax keeps the learning curve flat.**
+
 ## Ecosystem That Fits
 
 <!-- TODO: improve this text -->
@@ -112,43 +157,6 @@ To scale up, Vue ecosystem provides both official and community libraries that f
 
 **There's no need create meetings to discuss which router or state management library to use. Vue's official libraries are designed to work together seamlessly, following the same mental model.**
 
-
-## Composition API & component boundaries
-
-<!-- TODO: need to be rewritten -->
-
-Vue components have simple contracts:
-
-- Props in.
-- Emits out.
-- Slots for composition.
-
-With `<script setup>`, `defineProps` and `defineEmits`, the boilerplate stays out of your way.
-
-```vue
-<script setup>
-const props = defineProps({
-  modelValue: { type: String, default: '' },
-  label: { type: String, default: 'Label' },
-})
-
-const emit = defineEmits(['update:modelValue'])
-
-function onInput(e) {
-  emit('update:modelValue', e.target.value)
-}
-</script>
-
-<template>
-  <label>
-    {{ props.label }}
-    <input :value="props.modelValue" @input="onInput" />
-  </label>
-
-  <slot name="hint" />
-</template>
-```
-
 ## Ecosystem that fits
 
 Vue’s ecosystem is cohesive and aligns with the same mental model:
@@ -157,6 +165,7 @@ Vue’s ecosystem is cohesive and aligns with the same mental model:
 - Pinia: https://pinia.vuejs.org/
 - VueUse: https://vueuse.org/
 - Vue Devtools: https://devtools.vuejs.org/
+- Nuxt UI: https://ui.nuxt.com
 
 <!-- create 4 cards (2x2 grids) -->
 
