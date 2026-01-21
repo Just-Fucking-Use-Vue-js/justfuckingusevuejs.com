@@ -3,6 +3,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/ui',
     '@nuxt/content',
+    'nuxt-llms',
     '@vueuse/nuxt',
   ],
 
@@ -35,5 +36,11 @@ export default defineNuxtConfig({
     config: {
       stylistic: true,
     },
+  },
+
+  llms: {
+    domain: 'https://justfuckingusevuejs.com',
+    title: 'Just Fucking Use Vue.js',
+    description: 'Why choosing something else over Vue.js is a bad idea.',
   },
 })

@@ -1,3 +1,8 @@
+---
+title: Just Use Vue.js
+description: Minimal boilerplate. Readable components. Predictable reactivity.
+---
+
 ::hero
 #title
 <span class="dark:bg-linear-315 dark:from-[#42d392] dark:to-[#647eff] dark:bg-clip-text dark:text-transparent">Just Use <span class="light:bg-linear-315 light:from-[#42d392] light:to-[#647eff] light:bg-clip-text light:text-transparent">Vue.js</span>.</span>
