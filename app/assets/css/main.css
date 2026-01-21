@@ -8,7 +8,6 @@
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
   --color-bg: var(--bg);
-  --color-bg-alt: var(--bg-alt);
   --color-bg-soft: var(--bg-soft);
   --color-text: var(--text);
   --color-text-muted: var(--text-muted);
@@ -18,7 +17,6 @@
 
 :root {
   --bg: #ffffff;
-  --bg-alt: #f9f9f9;
   --bg-soft: #f6f6f7;
   --text: #213547;
   --text-muted: #476582;
@@ -28,7 +26,6 @@
 
 .dark {
   --bg: #1a1a1a;
-  --bg-alt: #242424;
   --bg-soft: #2f2f2f;
   --text: rgba(255, 255, 255, 0.87);
   --text-muted: rgba(235, 235, 235, 0.6);
