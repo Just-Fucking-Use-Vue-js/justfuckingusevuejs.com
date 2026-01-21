@@ -3,17 +3,19 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/ui',
     '@nuxt/content',
-    '@nuxt/fonts'
+    '@nuxt/fonts',
+    'nuxt-llms',
+    '@vueuse/nuxt'
   ],
 
   devtools: {
-    enabled: false
+    enabled: false,
   },
 
   css: ['~/assets/css/main.css'],
 
   routeRules: {
-    '/': { prerender: true }
+    '/': { prerender: true },
   },
 
   compatibilityDate: '2025-01-15',
@@ -26,15 +28,24 @@ export default defineNuxtConfig({
     build: {
       markdown: {
         highlight: {
-          theme: 'github-dark'
-        }
-      }
-    }
+          theme: {
+            default: 'github-light',
+            dark: 'github-dark',
+          },
+        },
+      },
+    },
   },
 
   eslint: {
     config: {
-      stylistic: true
-    }
-  }
+      stylistic: true,
+    },
+  },
+
+  llms: {
+    domain: 'https://justfuckingusevuejs.com',
+    title: 'Just Fucking Use Vue.js',
+    description: 'Why choosing something else over Vue.js is a bad idea.',
+  },
 })

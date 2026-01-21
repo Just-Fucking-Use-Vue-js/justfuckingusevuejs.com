@@ -9,6 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
@@ -16,8 +17,10 @@
     "@iconify-json/simple-icons": "^1.2.63",
     "@nuxt/content": "^3.11.0",
     "@nuxt/ui": "^4.3.0",
+    "@vueuse/nuxt": "14.1.0",
     "better-sqlite3": "^12.6.2",
-    "nuxt": "^4.2.2"
+    "nuxt": "^4.2.2",
+    "nuxt-llms": "^0.2.0"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.12.1",

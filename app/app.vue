@@ -15,7 +15,7 @@ const { data: home } = await useAsyncData(() => queryCollection('content').path(
     <!--
     ## Footer
 
-This page is opinionated and playful. It’s not a framework war.
+This page is opinionated and playful. It's not a framework war.
 
 Not affiliated with the Vue team.
 
