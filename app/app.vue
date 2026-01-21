@@ -4,11 +4,13 @@ const { data: home } = await useAsyncData(() => queryCollection('content').path(
 
 <template>
   <UApp>
-    <UMain>
-      <ContentRenderer
-        v-if="home"
-        :value="home"
-      />
+    <UMain class="px-6">
+      <div class="max-w-[688px] mx-auto">
+        <ContentRenderer
+          v-if="home"
+          :value="home"
+        />
+      </div>
     </UMain>
 
     <!-- Footer -->

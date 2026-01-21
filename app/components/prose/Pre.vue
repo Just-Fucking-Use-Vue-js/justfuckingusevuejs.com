@@ -15,10 +15,10 @@ const appConfig = useAppConfig()
 </script>
 
 <template>
-  <div class="relative bg-[#292d3e] dark:bg-[#242424] group rounded-lg">
+  <div class="relative bg-[#292d3e] dark:bg-[#242424] group -mx-6 sm:mx-0 sm:rounded-lg">
     <button
       title="Copie code"
-      class="absolute top-1 right-1 flex flex-row justify-center items-center opacity-0 rounded hover:bg-[#343848] dark:hover:bg-[#2f2f2f] group-hover:opacity-100 transition-opacity duration-400"
+      class="absolute top-1 right-1 z-3 flex flex-row justify-center items-center opacity-0 rounded hover:bg-[#343848] dark:hover:bg-[#2f2f2f] group-hover:opacity-100 transition-opacity duration-400"
       :class="{
         'bg-[#343848] dark:bg-[#2f2f2f] opacity-100': copied,
       }"
@@ -39,7 +39,7 @@ const appConfig = useAppConfig()
       </span>
     </button>
 
-    <span class="absolute text-[#ffffffde] dark:text-[#ebebeb61] text-xs font-medium tracking-[0.2px] right-[10px] top-1 group-hover:opacity-0">
+    <span class="absolute z-2 text-[#ffffffde] dark:text-[#ebebeb61] text-xs font-medium tracking-[0.2px] right-[10px] top-1 group-hover:opacity-0">
       {{ props.language }}
     </span>
 

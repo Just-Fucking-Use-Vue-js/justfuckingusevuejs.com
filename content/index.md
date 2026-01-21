@@ -6,7 +6,6 @@
 Minimal boilerplate. Readable components. Predictable reactivity.
 ::
 
-::u-container
 ## The Progressive Framework
 
 Vue.js is designed to be incrementally adoptable. You can start small and scale up as needed. Whether you're adding interactivity to a static page or building a complex single-page application, Vue has you covered.
@@ -28,13 +27,13 @@ Vue.js is designed to be incrementally adoptable. You can start small and scale 
 </script>
 ```
 
+This renders as:
+
 :the-progressive-framework-illustration
 
 **This makes Vue approachable for beginners, flattens the learning curve, and lets you focus on building your UI instead of assembling a complex toolchain.**
-::
 
 
-::u-container
 ## Reactivity at its Core
 
 Will it re-render? Should I memoize this function? These questions don't exist in Vue. The fine-grained reactivity system tracks dependencies automatically, making changes predictable and easy to reason about. No magic, no surprises.
@@ -73,9 +72,7 @@ export function useCounter() {
 ```
 
 **Use the reactivity system directly, without ceremony. Your code stays clean, readable, and easy to maintain. Readable in and out of components.**
-::
 
-::u-container
 ## Comprehensive Single-File Components
 
 Vue.js syntax is HTML-compatible. There's no need to learn a new templating language. Just use standard HTML with special attributes (directives) to bind data and react to events. With this familiar syntax, Vue's Single-File components (SFCs) let you create clean, encapsulated, and reusable components with minimal boilerplate. that's easy to read and maintain.
@@ -98,13 +95,10 @@ const name = ref('Vue')
 ```
 
 **SFCs keep your components organized and easy to understand, with clear separation of concerns. There's no need to write an infinity of components in a single file.**
-::
 
-::u-container
 ## Composition by Nature
 
-<!-- TODO: le faire plus générique au départ et ensuite se tourner vers l'api de Vue.js -->
-<!-- TODO: create a beautiful UI component to demonstrate this point -->
+<!-- TODO: create a beautiful UI component to demonstrate this point? -->
 
 Parent-child communication is at the heart of our UIs. Making it intuitive and you're assured a smooth development experience. Vue.js takes is seriously. Accept data (props) from parents and emit events (emits) to notify them of changes. Exactly like standard HTML elements.
 
@@ -148,9 +142,7 @@ Even better, you can pass templates (slots) to compose complex components from s
   ::
 
 **Clear boundaries make components easy to understand and reuse. Simple, elegant and HTML-compatible syntax keeps the learning curve flat.**
-::
 
-::u-container
 ## Ecosystem That Fits
 
 <!-- TODO: improve this text -->
@@ -166,7 +158,6 @@ To scale up, Vue ecosystem provides both official and community libraries that f
 - Nuxt UI: Component library for building beautiful UIs. (https://ui.nuxt.com/)
 
 **There's no need create meetings to discuss which router or state management library to use. Vue's official libraries are designed to work together seamlessly, following the same mental model.**
-::
 
 <!-- TODO: not sure about these copy/paste bullets, need to think more about them. -->
 
