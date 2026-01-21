@@ -4,7 +4,7 @@ const { data: home } = await useAsyncData(() => queryCollection('content').path(
 
 <template>
   <UApp>
-    <UMain>
+    <UMain class="content-wrapper">
       <ContentRenderer
         v-if="home"
         :value="home"

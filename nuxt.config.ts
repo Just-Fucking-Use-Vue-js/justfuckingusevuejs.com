@@ -2,7 +2,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxt/ui',
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxt/fonts'
   ],
 
   devtools: {
@@ -16,6 +17,20 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2025-01-15',
+
+  features: {
+    inlineStyles: true
+  },
+
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          theme: 'github-dark'
+        }
+      }
+    }
+  },
 
   eslint: {
     config: {
