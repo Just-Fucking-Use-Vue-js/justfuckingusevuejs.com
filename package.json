@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.12.1",
+    "@nuxt/fonts": "^0.12.1",
     "eslint": "^9.39.2",
     "typescript": "^5.9.3",
     "vue-tsc": "^3.2.1"

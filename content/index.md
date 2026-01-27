@@ -5,216 +5,122 @@ description: Minimal boilerplate. Readable components. Predictable reactivity.
 
 ::hero
 #title
-<span class="dark:bg-linear-315 dark:from-[#42d392] dark:to-[#647eff] dark:bg-clip-text dark:text-transparent">Just Use <span class="light:bg-linear-315 light:from-[#42d392] light:to-[#647eff] light:bg-clip-text light:text-transparent">Vue.js</span>.</span>
+Just <span class="text-gradient">Use Vue</span>
 
 #description
-Minimal boilerplate. Readable components. Predictable reactivity.
+Predictable reactivity. Minimal boilerplate. Readable components.
+
+#links
+<a href="https://vuejs.org/guide/quick-start.html" target="_blank" class="hero-btn">Quick Start →</a>
+<a href="https://vuejs.org/guide/quick-start.html#creating-a-vue-application" target="_blank" class="hero-btn">Installation</a>
 ::
+
+## Sound familiar?
+
+You've been there:
+- "Why did this re-render 47 times?"
+- "Which state library are we using this month?"
+- "My custom hook is 200 lines for a counter"
+- "The build takes 3 minutes for a Hello World"
+
+Modern frontend has become an exercise in fighting your tools. It doesn't have to be this way.
 
 ## The Progressive Framework
 
-Vue.js is designed to be incrementally adoptable. You can start small and scale up as needed. Whether you're adding interactivity to a static page or building a complex single-page application, Vue has you covered.
+Frontend got complicated. Vue didn't.
 
-```html [index.html]
-<div id="app">
-  <button @click="count++">Count: {{ count }}</button>
-</div>
+No build step required. Drop a script tag, write your component, ship it. When you need more power, Vue scales with you-from a simple widget to a full-featured SPA. The same mental model, [all the way up](https://vuejs.org/guide/introduction.html#the-progressive-framework).
 
-<script type="module">
-  import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+`<button @click="count++">{{ count }}</button>` - That's it. That's reactive.
 
-  createApp({
-    setup() {
-      const count = ref(1)
-      return { count }
-    },
-  }).mount('#app')
-</script>
-```
+**Approachable for beginners. Powerful for experts. No toolchain assembly required.**
 
-This renders as:
+## Reactivity That Just Works
 
-:the-progressive-framework-illustration
+Will it re-render? Should I memoize? These questions don't exist here.
 
-**This makes Vue approachable for beginners, flattens the learning curve, and lets you focus on building your UI instead of assembling a complex toolchain.**
+Vue's fine-grained reactivity tracks dependencies automatically. No dependency arrays. No manual optimization. Change a value, and only what needs to update, updates.
 
+`const total = computed(() => price.value * quantity.value)` - Dependencies tracked. Automatically.
 
-## Reactivity at its Core
+Want to share logic between components? Extract it to a plain function. That's it. No special syntax, no framework magic. Vue's reactivity works everywhere-inside and outside components.
 
-Will it re-render? Should I memoize this function? These questions don't exist in Vue. The fine-grained reactivity system tracks dependencies automatically, making changes predictable and easy to reason about. No magic, no surprises.
+**Clean. Readable. Reusable. No ceremony.**
 
-```vue [TotalPrice.vue]
-<script setup>
-import { computed, ref, watchEffect } from 'vue'
+## Single-File Components
 
-const price = ref(25)
-const quantity = ref(3)
+HTML you already know. Logic where you expect it. Styles that don't leak.
 
-const total = computed(() => price.value * quantity.value)
+Vue's templates are just HTML with superpowers. No new syntax to learn-just bind data and handle events with intuitive directives. Everything in one file, clearly organized.
 
-watchEffect(() => {
-  console.log(`Total price is now: $${total.value}`)
-})
+`<input v-model="name" />`  Two-way binding. One line.
 
-quantity.value += 2 // Console: Total price is now: $125
-</script>
-```
-
-Want to share stateful logic between components? Just extract it to a plain function (a composable) and reuse it anywhere. Yes, it's that simple. Vue's reactivity works everywhere. Nothing more to learn.
-
-```js [useCounter.js]
-import { computed, ref } from 'vue'
-
-export function useCounter() {
-  const count = ref(0)
-
-  function inc() {
-    count.value += 1
-  }
-
-  return { count, inc }
-}
-```
-
-**Use the reactivity system directly, without ceremony. Your code stays clean, readable, and easy to maintain. Readable in and out of components.**
-
-## Comprehensive Single-File Components
-
-Vue.js syntax is HTML-compatible. There's no need to learn a new templating language. Just use standard HTML with special attributes (directives) to bind data and react to events. With this familiar syntax, Vue's Single-File components (SFCs) let you create clean, encapsulated, and reusable components with minimal boilerplate. that's easy to read and maintain.
-
-```vue [Greeting.vue]
-<script setup>
-import { ref } from 'vue'
-
-const name = ref('Vue')
-</script>
-
-<template>
-  <label class="text-muted text-sm">
-    Name
-    <input v-model="name" class="border rounded px-2 py-1" />
-  </label>
-
-  <p class="mt-2">Hello, {{ name }}!</p>
-</template>
-```
-
-**SFCs keep your components organized and easy to understand, with clear separation of concerns. There's no need to write an infinity of components in a single file.**
+**One component. One file. No mental gymnastics.**
 
 ## Composition by Nature
 
-<!-- TODO: create a beautiful UI component to demonstrate this point? -->
+Parent-child communication shouldn't require a PhD.
 
-Parent-child communication is at the heart of our UIs. Making it intuitive and you're assured a smooth development experience. Vue.js takes is seriously. Accept data (props) from parents and emit events (emits) to notify them of changes. Exactly like standard HTML elements.
+Props down. Events up. Exactly like HTML elements work. Vue makes component communication intuitive-accept data from parents, emit events to notify them. No context providers, no prop drilling debates.
 
-```vue [Modal.vue]
-<script setup>
-const props = defineProps({
-  title: String,
-})
+`defineProps(['title'])` + `defineEmits(['close'])` Clear contract. Zero boilerplate.
 
-const emits = defineEmits(['close'])
-</script>
+Slots let you pass entire templates into components. Composition without complexity.
 
-<template>
-  <div class="modal">
-    <h2>{{ props.title }}</h2>
-    <button @click="emits('close')">Close</button>
-  </div>
-</template>
-```
-
-Even better, you can pass templates (slots) to compose complex components from simple building blocks.
-
-  ::side-by-side
-  #left
-  ```vue [Modal.vue]
-  <template>
-    <div class="modal">
-      <slot />
-    </div>
-  </template>
-  ```
-  #right
-  ```vue [App.vue]
-  <template>
-    <Modal>
-      <h2>Welcome</h2>
-      <p>This is a simple modal dialog.</p>
-    </Modal>
-  </template>
-  ```
-  ::
-
-**Clear boundaries make components easy to understand and reuse. Simple, elegant and HTML-compatible syntax keeps the learning curve flat.**
+**Clear boundaries. Simple syntax. Flat learning curve.**
 
 ## Ecosystem That Fits
 
-<!-- TODO: improve this text -->
+No meetings to debate which router to use. No decision fatigue. One mental model, everywhere.
 
-To scale up, Vue ecosystem provides both official and community libraries that follow the same mental model, making them easy to learn and use together.
+- [Vue Router](https://router.vuejs.org/) Declarative routing for SPAs.
+- [Pinia](https://pinia.vuejs.org/) State management with first-class TypeScript.
+- [VueUse](https://vueuse.org/) Essential composition utilities.
+- [Vue Devtools](https://devtools.vuejs.org/) Debug and profile like a pro.
 
-<!-- TODO: use cards, 2x2 grid -->
+**Vue's official libraries are designed to work together. Same patterns. Same mental model. No surprises.**
 
-- Vue Router: Declarative routing for building SPAs. (https://router.vuejs.org/)
-- Pinia: Intuitive state management with first-class TypeScript support. (https://pinia.vuejs.org/)
-- VueUse: Collection of essential Vue composition utilities. (https://vueuse.org/)
-- Vue Devtools: Debug and profile your Vue applications. (https://devtools.vuejs.org/)
-- Nuxt UI: Component library for building beautiful UIs. (https://ui.nuxt.com/)
+## "But..."
 
-**There's no need create meetings to discuss which router or state management library to use. Vue's official libraries are designed to work together seamlessly, following the same mental model.**
+### "It's not as popular"
 
-<!-- TODO: not sure about these copy/paste bullets, need to think more about them. -->
+Popularity ≠ quality. Vue powers Alibaba, GitLab, Nintendo, Louis Vuitton, and parts of Apple's ecosystem. Second most used framework worldwide. Massive community. Mature ecosystem. Next question.
 
-<!-- ## Copy/paste bullets
+### "The job market..."
 
-- Do you want to express dependencies, or debug updates?
-- If derived state exists, why isn’t it a `computed`?
-- How much of your UI code is product, and how much is plumbing?
-- Would you rather “manage effects” or “describe state”?
-- When something changes, can you point to the dependency that caused it?
-- Does your UI logic feel reusable as plain functions?
-- Are you spending time syncing state across layers that should already agree?
-- Can you keep components small without inventing new patterns?
-- Do you want a framework you can try without committing a whole build pipeline?
-- Would a calmer mental model make you faster day to day? -->
+In Europe and Asia, Vue is everywhere. And here's the thing: a good Vue developer becomes productive in any framework fast. The mental model transfers. The skills compound.
 
-::call-to-action
+### "Templates are weird"
+
+They're HTML. The thing you already know. With superpowers. And they compile to highly optimized code with static analysis that catches errors before runtime. Your IDE loves them. Your team will too.
+
+### "It's not enterprise-ready"
+
+Tell that to Alibaba handling Singles' Day (11.11) with Vue-the biggest shopping event on the planet. Or GitLab running their entire frontend on it. At scale. For years. Or BMW, Adobe, NASA...
+
+## Questions to Ask Yourself
+
+- Does your derived state *look* derived?
+- Can you reuse UI logic as plain functions?
+- When something changes, can you point to what caused it?
+- How much of your code is product vs. plumbing?
+- Do you want to debug re-renders or express dependencies?
+- If derived state exists, why isn't it a `computed`?
+- Can you try a framework without committing to a build pipeline?
+- Does your component state live in the component or in a separate file?
+- Would a calmer mental model make you faster day to day?
+- Are you fighting your tools or using them?
+
+If you answered "no" to any of these, maybe it's time.
+
+## Try It
+
+[Vue Playground](https://play.vuejs.org/) | [Quick Start](https://vuejs.org/guide/quick-start.html)
+
 ---
-links:
-  - label: Vue Playground
-    url: https://play.vuejs.org?utm_source=justckingusevuejs.com&utm_medium=homepage&utm_term=vue+playground&utm_content=link
-    target: _blank
-  - label: Get Started
-    url: https://vuejs.org/guide/quick-start.html?utm_source=justckingusevuejs.com&utm_medium=homepage&utm_term=get+started&utm_content=link
-    target: _blank
----
-#title
-Try it
-#description
-No need to over-engineer your UI. Just use Vue.js now.
-::
 
-<!--
+This page is opinionated and playful. It's not a framework war.
 
-<!-- ## Why “Just Use Vue”
+Not affiliated with the Vue team.
 
-The slogan is not “switch your stack today.”
-
-It means:
-
-- Stop hand-assembling UI state sync.
-- Let derived state look derived.
-- Put reusable UI logic in plain functions (composables), not trapped inside components.
-
-When a value depends on other values, it should read like a dependency graph, not a convention.
-
-```js
-import { computed, ref } from 'vue'
-
-const price = ref(19)
-const quantity = ref(2)
-
-// Derived state that stays correct by construction.
-const total = computed(() => price.value * quantity.value)
-``` -->
+Inspiration: [justfuckingusetailwind.com](https://justfuckingusetailwind.com/), [motherfuckingwebsite.com](https://motherfuckingwebsite.com/), [bettermotherfuckingwebsite.com](http://bettermotherfuckingwebsite.com/)

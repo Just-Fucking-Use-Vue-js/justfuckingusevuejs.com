@@ -4,20 +4,18 @@ const { data: home } = await useAsyncData(() => queryCollection('content').path(
 
 <template>
   <UApp>
-    <UMain class="px-6">
-      <div class="max-w-[688px] mx-auto">
-        <ContentRenderer
-          v-if="home"
-          :value="home"
-        />
-      </div>
+    <UMain class="content">
+      <ContentRenderer
+        v-if="home"
+        :value="home"
+      />
     </UMain>
 
     <!-- Footer -->
     <!--
     ## Footer
 
-This page is opinionated and playful. It’s not a framework war.
+This page is opinionated and playful. It's not a framework war.
 
 Not affiliated with the Vue team.
 

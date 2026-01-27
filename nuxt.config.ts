@@ -30,6 +30,10 @@ export default defineNuxtConfig({
     '/': { prerender: true },
   },
 
+  features: {
+    inlineStyles: true,
+  },
+
   compatibilityDate: '2025-01-15',
 
   eslint: {
