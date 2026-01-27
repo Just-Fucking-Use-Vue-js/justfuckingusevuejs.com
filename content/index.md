@@ -53,7 +53,7 @@ HTML you already know. Logic where you expect it. Styles that don't leak.
 
 Vue's templates are just HTML with superpowers. No new syntax to learn-just bind data and handle events with intuitive directives. Everything in one file, clearly organized.
 
-`<input v-model="name" />` - Two-way binding. One line.
+`<input v-model="name" />`  Two-way binding. One line.
 
 **One component. One file. No mental gymnastics.**
 
@@ -63,7 +63,7 @@ Parent-child communication shouldn't require a PhD.
 
 Props down. Events up. Exactly like HTML elements work. Vue makes component communication intuitive-accept data from parents, emit events to notify them. No context providers, no prop drilling debates.
 
-`defineProps(['title'])` + `defineEmits(['close'])` - Clear contract. Zero boilerplate.
+`defineProps(['title'])` + `defineEmits(['close'])` Clear contract. Zero boilerplate.
 
 Slots let you pass entire templates into components. Composition without complexity.
 

@@ -47,11 +47,21 @@ body {
 }
 
 .content {
-  @apply max-w-170 mx-auto px-6 pb-24;
+  max-width: 42.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 6rem;
 }
 
 .content h2 {
-  @apply text-xl sm:text-2xl font-semibold mt-12 mb-4 text-text;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  color: var(--text);
   letter-spacing: -0.02em;
 }
 
@@ -65,53 +75,101 @@ body {
 }
 
 .content h3 {
-  @apply text-lg font-semibold mt-8 mb-2 text-text;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
 }
 
 .content p {
-  @apply text-base leading-relaxed mb-4 text-text-muted;
+  font-size: 1rem;
+  line-height: 1.625;
+  margin-bottom: 1rem;
+  color: var(--text-muted);
 }
 
 .content h2 + p {
-  @apply text-lg text-text;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: var(--text);
 }
 
 .content p:has(strong:only-child) {
-  @apply font-medium mt-6 mb-8 text-accent;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--accent);
 }
 
 .content ul {
-  @apply my-4 space-y-2;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   list-style: none;
   padding: 0;
 }
 
+.content ul > * + * {
+  margin-top: 0.5rem;
+}
+
 .content ul li {
-  @apply text-base leading-relaxed pl-5 relative text-text-muted;
+  font-size: 1rem;
+  line-height: 1.625;
+  padding-left: 1.25rem;
+  position: relative;
+  color: var(--text-muted);
 }
 
 .content ul li::before {
   content: "•";
-  @apply absolute left-0 text-accent;
+  position: absolute;
+  left: 0;
+  color: var(--accent);
 }
 
 .content a:not(.hero-btn) {
-  @apply font-medium transition-colors text-accent hover:text-accent/80;
+  font-weight: 500;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.content code:not(pre code) {
-  @apply px-1.5 py-0.5 rounded text-sm font-mono bg-bg-soft text-text;
+.content a:not(.hero-btn):hover {
+  color: color-mix(in srgb, var(--accent) 80%, transparent);
 }
 
-.content h2#sound-familiar + p + ul {
-  @apply space-y-1;
+.content code:not(pre code) {
+  padding-left: 0.375rem;
+  padding-right: 0.375rem;
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-family: var(--font-mono);
+  background: var(--bg-soft);
+  color: var(--text);
+}
+
+.content h2#sound-familiar + p + ul > * + * {
+  margin-top: 0.25rem;
 }
 
 .content h2#sound-familiar + p + ul li {
-  @apply pl-4 py-1.5 text-text-muted
-         border-l-2 border-accent/30 hover:border-accent transition-colors;
+  padding-left: 1rem;
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+  color: var(--text-muted);
+  border-left: 2px solid;
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+
+.content h2#sound-familiar + p + ul li:hover {
+  border-color: var(--accent);
 }
 
 .content h2#sound-familiar + p + ul li::before {
@@ -119,41 +177,58 @@ body {
 }
 
 .content h2#but-- {
-  @apply text-text-muted;
+  color: var(--text-muted);
 }
 
 .content h2#but-- ~ h3 {
-  @apply text-text;
+  color: var(--text);
 }
 
 .content h2#but-- ~ h3::before {
   content: "→ ";
-  @apply text-accent;
+  color: var(--accent);
 }
 
-.content h2#questions-to-ask-yourself + ul {
-  @apply space-y-1;
+.content h2#questions-to-ask-yourself + ul > * + * {
+  margin-top: 0.25rem;
 }
 
 .content h2#questions-to-ask-yourself + ul li {
-  @apply pl-5 text-text-muted text-sm;
+  padding-left: 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .content h2#questions-to-ask-yourself + ul li::before {
   content: "?";
-  @apply text-accent font-medium;
+  color: var(--accent);
+  font-weight: 500;
 }
 
 .content h2#questions-to-ask-yourself + ul li em {
-  @apply text-accent not-italic font-medium;
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 500;
 }
 
 .content h2#ecosystem-that-fits + p + ul {
-  @apply grid grid-cols-1 sm:grid-cols-2 gap-3;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.75rem;
 }
 
 .content h2#ecosystem-that-fits + p + ul li {
-  @apply bg-bg-soft rounded-lg p-4 border border-border hover:border-accent/50 transition-colors;
+  background: var(--bg-soft);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: 1px solid;
+  border-color: var(--border);
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+
+.content h2#ecosystem-that-fits + p + ul li:hover {
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
 }
 
 .content h2#ecosystem-that-fits + p + ul li::before {
@@ -161,32 +236,48 @@ body {
 }
 
 .content h2#ecosystem-that-fits + p + ul li a {
-  @apply text-accent font-medium no-underline hover:underline;
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.content h2#ecosystem-that-fits + p + ul li a:hover {
+  text-decoration: underline;
 }
 
 .content h2#try-it {
-  @apply text-center;
+  text-align: center;
 }
 
 .content h2#try-it + p {
-  @apply text-center text-lg;
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .hero {
-  @apply py-12 sm:py-16 text-center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  text-align: center;
 }
 
 .hero h1 {
-  @apply text-4xl sm:text-6xl font-black text-text;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 900;
+  color: var(--text);
   letter-spacing: -0.025em;
 }
 
 .hero-description {
-  @apply text-lg text-text-muted mt-4;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
 }
 
 .hero-links {
-  @apply mt-8;
+  margin-top: 2rem;
 }
 
 .hero-btn {
@@ -220,36 +311,23 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.color-mode-switch {
-  @apply rounded-full border border-border bg-bg-soft cursor-pointer;
-  width: 40px;
-  height: 22px;
-  transition: border-color 0.25s;
-}
+@media (min-width: 640px) {
+  .content h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 
-.color-mode-switch:hover {
-  @apply border-accent;
-}
+  .content h2#ecosystem-that-fits + p + ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
-.color-mode-switch .check {
-  @apply absolute rounded-full bg-white flex items-center justify-center;
-  width: 18px;
-  height: 18px;
-  top: 1px;
-  left: 1px;
-  transition: transform 0.25s;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
+  .hero {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 
-.color-mode-switch.dark .check {
-  transform: translateX(18px);
-  @apply bg-zinc-800;
-}
-
-.color-mode-switch .icon {
-  @apply w-3 h-3 text-zinc-500;
-}
-
-.color-mode-switch.dark .icon {
-  @apply text-zinc-400;
+  .hero h1 {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
 }
