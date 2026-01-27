@@ -1,0 +1,13 @@
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "justfuckingusevuejs-com",
+  "preview_urls": true,
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  "compatibility_date": "2025-10-24",
+  "assets": {
+    "directory": "./.output"
+  },
+}
