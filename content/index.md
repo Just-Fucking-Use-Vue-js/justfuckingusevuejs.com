@@ -15,22 +15,60 @@ Minimal boilerplate. Readable components. Predictable reactivity.
 
 Vue.js is designed to be incrementally adoptable. You can start small and scale up as needed. Whether you're adding interactivity to a static page or building a complex single-page application, Vue has you covered.
 
+::with-tests
+
+#default
+
 ```html [index.html]
 <div id="app">
   <button @click="count++">Count: {{ count }}</button>
 </div>
 
 <script type="module">
-  import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+  import {
+    createApp,
+    ref,
+  } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
 
   createApp({
     setup() {
-      const count = ref(1)
-      return { count }
+      const count = ref(1);
+      return { count };
     },
-  }).mount('#app')
+  }).mount("#app");
 </script>
 ```
+
+#test
+
+```ts [tests/button.spec.ts]
+describe("Button test", () => {
+  const SystemUnderTest = defineComponent({
+    template: '<button @click="count++">Count: {{ count }}</button>',
+    setup: () => {
+      const count = ref(1);
+
+      return {
+        count,
+      };
+    },
+  });
+
+  test("Should have initial value to 0", async () => {
+    const component = mount(SystemUnderTest);
+    await expect(component.find("button").text()).toEqual("Count: 1");
+  });
+  test("Should increment counter on click", async () => {
+    const component = mount(SystemUnderTest);
+
+    await component.find("button").trigger("click");
+
+    await expect(component.find("button").text()).toEqual("Count: 2");
+  });
+});
+```
+
+::
 
 This renders as:
 
@@ -38,41 +76,40 @@ This renders as:
 
 **This makes Vue approachable for beginners, flattens the learning curve, and lets you focus on building your UI instead of assembling a complex toolchain.**
 
-
 ## Reactivity at its Core
 
 Will it re-render? Should I memoize this function? These questions don't exist in Vue. The fine-grained reactivity system tracks dependencies automatically, making changes predictable and easy to reason about. No magic, no surprises.
 
 ```vue [TotalPrice.vue]
 <script setup>
-import { computed, ref, watchEffect } from 'vue'
+import { computed, ref, watchEffect } from "vue";
 
-const price = ref(25)
-const quantity = ref(3)
+const price = ref(25);
+const quantity = ref(3);
 
-const total = computed(() => price.value * quantity.value)
+const total = computed(() => price.value * quantity.value);
 
 watchEffect(() => {
-  console.log(`Total price is now: $${total.value}`)
-})
+  console.log(`Total price is now: $${total.value}`);
+});
 
-quantity.value += 2 // Console: Total price is now: $125
+quantity.value += 2; // Console: Total price is now: $125
 </script>
 ```
 
 Want to share stateful logic between components? Just extract it to a plain function (a composable) and reuse it anywhere. Yes, it's that simple. Vue's reactivity works everywhere. Nothing more to learn.
 
 ```js [useCounter.js]
-import { computed, ref } from 'vue'
+import { computed, ref } from "vue";
 
 export function useCounter() {
-  const count = ref(0)
+  const count = ref(0);
 
   function inc() {
-    count.value += 1
+    count.value += 1;
   }
 
-  return { count, inc }
+  return { count, inc };
 }
 ```
 
@@ -84,9 +121,9 @@ Vue.js syntax is HTML-compatible. There's no need to learn a new templating lang
 
 ```vue [Greeting.vue]
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
-const name = ref('Vue')
+const name = ref("Vue");
 </script>
 
 <template>
@@ -111,9 +148,9 @@ Parent-child communication is at the heart of our UIs. Making it intuitive and y
 <script setup>
 const props = defineProps({
   title: String,
-})
+});
 
-const emits = defineEmits(['close'])
+const emits = defineEmits(["close"]);
 </script>
 
 <template>
@@ -126,25 +163,29 @@ const emits = defineEmits(['close'])
 
 Even better, you can pass templates (slots) to compose complex components from simple building blocks.
 
-  ::side-by-side
-  #left
-  ```vue [Modal.vue]
-  <template>
-    <div class="modal">
-      <slot />
-    </div>
-  </template>
-  ```
-  #right
-  ```vue [App.vue]
-  <template>
-    <Modal>
-      <h2>Welcome</h2>
-      <p>This is a simple modal dialog.</p>
-    </Modal>
-  </template>
-  ```
-  ::
+::side-by-side
+#left
+
+```vue [Modal.vue]
+<template>
+  <div class="modal">
+    <slot />
+  </div>
+</template>
+```
+
+#right
+
+```vue [App.vue]
+<template>
+  <Modal>
+    <h2>Welcome</h2>
+    <p>This is a simple modal dialog.</p>
+  </Modal>
+</template>
+```
+
+::
 
 **Clear boundaries make components easy to understand and reuse. Simple, elegant and HTML-compatible syntax keeps the learning curve flat.**
 
@@ -179,16 +220,19 @@ To scale up, Vue ecosystem provides both official and community libraries that f
 - Do you want a framework you can try without committing a whole build pipeline?
 - Would a calmer mental model make you faster day to day? -->
 
-::call-to-action
----
+## ::call-to-action
+
 links:
-  - label: Vue Playground
-    url: https://play.vuejs.org?utm_source=justckingusevuejs.com&utm_medium=homepage&utm_term=vue+playground&utm_content=link
-    target: _blank
-  - label: Get Started
-    url: https://vuejs.org/guide/quick-start.html?utm_source=justckingusevuejs.com&utm_medium=homepage&utm_term=get+started&utm_content=link
-    target: _blank
+
+- label: Vue Playground
+  url: https://play.vuejs.org?utm_source=justckingusevuejs.com&utm_medium=homepage&utm_term=vue+playground&utm_content=link
+  target: \_blank
+- label: Get Started
+  url: https://vuejs.org/guide/quick-start.html?utm_source=justckingusevuejs.com&utm_medium=homepage&utm_term=get+started&utm_content=link
+  target: \_blank
+
 ---
+
 #title
 Try it
 #description
